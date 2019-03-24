@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">GLME</string>
+    <string name="ContactoItem">Nombre del contacto</string>
+    <string name="btnLLamar">LLamar</string>
+    <string name="btnMensaje">Mensaje</string>
+    <string name="btnEmail">Email</string>
+    <string name="lblNumero">Numero</string>
+    <string name="btnEnviar">Enciar</string>
+</resources>
