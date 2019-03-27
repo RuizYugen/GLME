@@ -13,6 +13,12 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     private final int PERMISSIONS_REQUEST_READ_CONTACT = 100;
     private final int PERMISSIONS_REQUEST_SEND_SMS=99;
+    private final int PERMISSIONS_REQUEST_RECEIVE_SMS=98;
+    private final int PERMISSIONS_REQUEST_READ_SMS=97;
+    private final int PERMISSIONS_REQUEST_READ_STATE_PHONE=96;
+    private final int PERMISSIONS_REQUEST_PROCESS_OUTGOING_CALLS=95;
+    private final int PERMISSIONS_REQUEST_CALL_PHONE=94;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +39,51 @@ public class MainActivity extends AppCompatActivity {
             requestPermissions(new
                             String[]{Manifest.permission.SEND_SMS},
                     PERMISSIONS_REQUEST_SEND_SMS
+            );
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+                && checkSelfPermission(Manifest.permission.RECEIVE_SMS)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            requestPermissions(new
+                            String[]{Manifest.permission.RECEIVE_SMS},
+                    PERMISSIONS_REQUEST_RECEIVE_SMS
+            );
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+                && checkSelfPermission(Manifest.permission.READ_SMS)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            requestPermissions(new
+                            String[]{Manifest.permission.READ_SMS},
+                    PERMISSIONS_REQUEST_READ_SMS
+            );
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+                && checkSelfPermission(Manifest.permission.READ_PHONE_STATE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            requestPermissions(new
+                            String[]{Manifest.permission.READ_PHONE_STATE},
+                    PERMISSIONS_REQUEST_READ_STATE_PHONE
+            );
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+                && checkSelfPermission(Manifest.permission.PROCESS_OUTGOING_CALLS)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            requestPermissions(new
+                            String[]{Manifest.permission.PROCESS_OUTGOING_CALLS},
+                    PERMISSIONS_REQUEST_PROCESS_OUTGOING_CALLS
+            );
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+                && checkSelfPermission(Manifest.permission.CALL_PHONE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            requestPermissions(new
+                            String[]{Manifest.permission.CALL_PHONE},
+                    PERMISSIONS_REQUEST_CALL_PHONE
             );
         }
         recyclerView=(RecyclerView)findViewById(R.id.rclrContactos);
@@ -56,6 +107,41 @@ public class MainActivity extends AppCompatActivity {
                 }
                 return;
             case PERMISSIONS_REQUEST_SEND_SMS:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    return;
+                } else {
+                    finish();
+                }
+                return;
+            case PERMISSIONS_REQUEST_RECEIVE_SMS:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    return;
+                } else {
+                    finish();
+                }
+                return;
+            case PERMISSIONS_REQUEST_READ_SMS:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    return;
+                } else {
+                    finish();
+                }
+                return;
+            case PERMISSIONS_REQUEST_READ_STATE_PHONE:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    return;
+                } else {
+                    finish();
+                }
+                return;
+            case PERMISSIONS_REQUEST_PROCESS_OUTGOING_CALLS:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    return;
+                } else {
+                    finish();
+                }
+                return;
+            case PERMISSIONS_REQUEST_CALL_PHONE:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                     return;
                 } else {
